@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="句点英语备课，Windows 桌面产品案例及可交互演示。">
+<link rel="icon" href="assets/mark.png">
+<link rel="stylesheet" href="style.css">
+<title>句点英语备课｜产品作品集</title>
+</head>
+<body>
+<a class="skip" href="#main">跳到内容</a>
+<header class="bar">
+  <div class="wrap masthead">
+    <a class="brand" href="#main"><img src="assets/mark.png" alt="" width="36" height="36">句点英语备课</a>
+    <nav aria-label="页面索引"><a href="#demo">在线体验</a><a href="#screens">界面细节</a><a href="#design">设计取舍</a></nav>
+    <a class="head-action" href="#demo">试用演示</a>
+  </div>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> 产品设计与开发案例</p>
+        <h1>句点<span>英语备课</span></h1>
+        <p class="summary">给英语教师的 Windows 备课工作台。读原文、核对解析、收词和出题，都在同一个窗口完成。</p>
+        <div class="hero-actions"><a class="button primary" href="#demo">进入可点击演示</a><a class="button ghost" href="#design">阅读设计取舍</a></div>
+        <p class="platform">Windows 桌面应用 <span></span> 0.9.10</p>
+      </div>
+      <figure class="hero-figure">
+        <img src="assets/judian-analysis-0910.png" width="1360" height="840" alt="0.9.10 长难句界面，左侧原文，右侧句式结构、翻译与分析" fetchpriority="high">
+        <figcaption>文章解析 · 长难句</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="wrap workbench" id="demo">
+    <header class="section-title">
+      <div><p class="eyebrow"><span></span> 在线体验</p><h2>像打开客户端一样操作</h2></div>
+      <p>演示使用 0.9.10 的界面与内置示例。生成结果为模拟数据，无需 API 密钥。</p>
+    </header>
+    <div class="demo-shell">
+      <div class="demo-toolbar">
+        <div class="flows" aria-label="跳转到演示功能">
+          <button type="button" class="active" data-view="analysis" data-tab="sentences" aria-pressed="true">文章解析</button>
+          <button type="button" data-view="analysis" data-tab="vocab" aria-pressed="false">重点词汇</button>
+          <button type="button" data-view="wordbook" aria-pressed="false">单词本</button>
+          <button type="button" data-view="history" aria-pressed="false">历史记录</button>
+        </div>
+        <a href="demo/index.html?tab=sentences" target="_blank" rel="noopener">独立打开</a>
+      </div>
+      <p class="mobile-hint">手机上可横向滑动查看完整工作台。</p>
+      <div class="frame-scroll" tabindex="0" aria-label="桌面应用演示区">
+        <iframe id="live-demo" title="句点英语备课 0.9.10 交互演示" src="demo/index.html?tab=sentences" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+      </div>
+      <p class="try" id="try-tip">试试点击右栏的「定位原文」，再切到「逐题讲解」核对题目依据。</p>
+    </div>
+  </section>
+  <section class="screens" id="screens">
+    <div class="wrap">
+      <header class="section-title">
+        <div><p class="eyebrow"><span></span> 界面细节</p><h2>文章、词汇与习题</h2></div>
+        <p>以下为 0.9.10 演示版重新截取的画面，点击可放大。</p>
+      </header>
+      <div class="gallery">
+        <figure><a href="assets/judian-analysis-0910.png" data-image><img src="assets/judian-analysis-0910.png" width="1360" height="840" alt="文章解析和原文定位" loading="lazy"></a><figcaption><strong>原文定位</strong><span>在解释和段落之间切换</span></figcaption></figure>
+        <figure><a href="assets/judian-words-0910.png" data-image><img src="assets/judian-words-0910.png" width="1360" height="840" alt="单词本示例词表" loading="lazy"></a><figcaption><strong>单词本</strong><span>搜索、收藏与挑词导出</span></figcaption></figure>
+        <figure><a href="assets/judian-practice-0910.png" data-image><img src="assets/judian-practice-0910.png" width="1360" height="840" alt="练习页中展开的题型选择菜单" loading="lazy"></a><figcaption><strong>词汇练习</strong><span>选择题、填空题或混合生成</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section class="wrap decisions" id="design">
+    <header class="section-title"><div><p class="eyebrow"><span></span> 设计取舍</p><h2>让备课过程可以核对</h2></div></header>
+    <div class="decision-grid">
+      <article><h3>并排阅读，随时返回原文</h3><p>把原文放在左栏，右栏按篇章、逐题、词汇、长难句和练习分组。老师看翻译或考点时，可以直接跳回对应段落。</p></article>
+      <article><h3>先圈定词条，再选择题型</h3><p>勾选词条后，明确每词题数和题型才启用生成。生成的题目可以逐题改写，答案也能在展示时收起。</p></article>
+      <article><h3>短窗口也留出操作空间</h3><p>教材筛选和操作允许分行，练习与导出整组对齐。实机验证了 960 × 640 窗口下按钮仍可点击。</p></article>
+    </div>
+    <div class="delivery"><strong>实现与交付</strong><p>Vue 构建交互界面，Electron 主进程处理本地数据、导入和 Word 导出。通过 Windows 安装包交付，并在实际安装后验证了运行时任务栏图标。</p></div>
+  </section>
+</main>
+<footer><div class="wrap footer"><a class="brand" href="#main"><img src="assets/mark.png" alt="" width="27" height="27">句点英语备课</a><a href="#main">回到顶部</a></div></footer>
+<dialog id="image-dialog" aria-label="大图预览"><form method="dialog"><button type="submit">关闭</button></form><img alt=""></dialog>
+<script src="script.js" defer></script>
+</body>
+</html>

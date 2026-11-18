@@ -1,0 +1,1546 @@
+/* ============================================================
+   复刻层 · 按设计稿逐项对齐字号/间距/描边
+   在 theme.css 之后引入，同名选择器直接覆盖，不改旧结构
+   ============================================================ */
+
+/* ------------------------- 1. 解析页顶部 ------------------------- */
+
+.an-head.card {
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 16px;
+}
+
+.an-head-main {
+  gap: 7px;
+}
+
+.an-head.card .an-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.an-title-dot {
+  margin: 0 1px;
+  color: var(--muted-light);
+}
+
+.an-doc {
+  max-width: 320px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* 状态：纯文字 + 左侧竖线，不做成色块 */
+.an-badge,
+.an-badge.ok,
+.an-badge.busy,
+.an-badge.bad {
+  padding: 0 0 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  background: none;
+  border-left: 1px solid var(--line-strong);
+  border-radius: 0;
+}
+
+.an-head-actions .btn {
+  height: 30px;
+  padding: 0 11px;
+  font-size: 13px;
+}
+
+/* 生成中：计时贴在按钮左侧 */
+.an-timer {
+  gap: 7px;
+  padding-right: 4px;
+  font-size: 13px;
+}
+
+.an-timer-label {
+  color: var(--muted);
+}
+
+.an-timer-num {
+  min-width: 28px;
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------- 2. 结果页签 ------------------------- */
+
+.an-result .result-tabs,
+.hs-detail .result-tabs {
+  gap: 0;
+  align-items: stretch;
+  height: 46px;
+  padding: 0 20px;
+}
+
+.an-result .result-tab,
+.hs-detail .result-tab {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 14.5px;
+}
+
+/* 页签之间的细小竖线 */
+.an-result .result-tab + .result-tab::before,
+.hs-detail .result-tab + .result-tab::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 13px;
+  margin-top: -7px;
+  background: var(--line-strong);
+  content: '';
+}
+
+.an-result .result-tab.active::after,
+.hs-detail .result-tab.active::after {
+  height: 2px;
+}
+
+.an-result .result-body,
+.hs-detail .result-body {
+  gap: 14px;
+  padding: 18px 20px 22px;
+}
+
+/* ------------------------- 3. 左栏原文 ------------------------- */
+
+.an-source-head {
+  padding: 14px 16px 8px;
+}
+
+.an-source-head h2 {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.an-chips {
+  gap: 6px;
+  padding: 0 16px 12px;
+}
+
+.an-chip {
+  min-width: 30px;
+  height: 24px;
+  padding: 0 9px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+
+.an-chip.active {
+  color: #fff;
+  font-weight: 500;
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.an-source-body {
+  padding: 0 16px 18px;
+}
+
+.an-para {
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 9px;
+  padding: 8px 0;
+}
+
+.an-para + .an-para {
+  margin-top: 8px;
+}
+
+.an-para-label {
+  padding-top: 3px;
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.an-para-text {
+  padding-left: 12px;
+  font-size: 14.5px;
+  line-height: 1.9;
+  border-left: 1px solid #e0e7f1;
+}
+
+.an-para.is-active .an-para-text,
+.an-para:hover .an-para-text {
+  border-left-color: var(--deep-3);
+}
+
+/* ------------------------- 4. 篇章分析 ------------------------- */
+
+.dc-list {
+  gap: 18px;
+}
+
+.dc-row {
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.dc-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+  background: #f4f5f8;
+  border-radius: 6px;
+}
+
+.dc-value {
+  padding-top: 1px;
+  font-size: 14.5px;
+  line-height: 1.92;
+}
+
+.dc-genre {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dc-paras {
+  gap: 10px;
+}
+
+.dc-para {
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.dc-para-tag {
+  height: 21px;
+  padding: 0 6px;
+  font-size: 12px;
+  background: var(--deep-bg);
+}
+
+.dc-para-body h4 {
+  margin-bottom: 4px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.dc-para-body p {
+  color: #46566c;
+  font-size: 14px;
+  line-height: 1.82;
+}
+
+/* ------------------------- 5. 重点词汇 ------------------------- */
+
+.vc-board {
+  gap: 0;
+}
+
+.vc-head {
+  padding-bottom: 12px;
+  border-bottom: 0;
+}
+
+.vc-head h3 {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.vc-count {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.vc-card {
+  grid-template-columns: 186px minmax(0, 1fr);
+  padding: 17px 0 19px;
+  border-bottom: 0;
+}
+
+.vc-lead {
+  padding-right: 20px;
+}
+
+.vc-term {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.vc-ipa {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.vc-pos {
+  height: 18px;
+  padding: 0 6px;
+  margin-top: 8px;
+  font-size: 11.5px;
+  line-height: 18px;
+  background: #f4f5f8;
+  border-radius: 4px;
+}
+
+.vc-meaning {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+/* 单词与字段之间那条竖线 */
+.vc-body {
+  padding-left: 20px;
+  border-left: 1px solid var(--line-strong);
+}
+
+.vc-actions {
+  gap: 8px;
+  min-height: 0;
+  margin-bottom: 10px;
+}
+
+.vc-actions .btn {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 12.5px;
+}
+
+.vc-rows {
+  gap: 9px;
+}
+
+.vc-row {
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.vc-row dt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  background: #f4f5f8;
+  border-radius: 5px;
+}
+
+.vc-row dd {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.vc-row:first-child dd {
+  gap: 10px;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--deep-bg);
+  border-radius: 6px;
+}
+
+.vc-phrase {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.vc-locate {
+  color: var(--deep);
+  font-size: 12px;
+}
+
+.vc-foot {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 16px;
+  padding: 9px 12px;
+  color: var(--muted);
+  font-size: 12.5px;
+  background: #f4f5f8;
+  border-radius: 8px;
+}
+
+/* ------------------------- 6. 长难句 ------------------------- */
+
+.sn-board {
+  gap: 12px;
+}
+
+.sn-pills {
+  gap: 7px;
+}
+
+.sn-pill {
+  height: 26px;
+  padding: 0 12px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.sn-pill.active {
+  color: #fff;
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.sn-panel {
+  padding: 14px 16px 16px;
+}
+
+.sn-head {
+  padding-bottom: 9px;
+}
+
+.sn-head h3 {
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.sn-quote {
+  margin: 14px 0 16px;
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+/* 句式结构 / 翻译 / 分析 统一用一个浅蓝框包住 */
+.sn-rows {
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--deep-line);
+  border-radius: 8px;
+}
+
+.sn-row {
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 14px;
+  padding: 11px 13px;
+  border-top: 1px solid #eef3fa;
+}
+
+.sn-row:first-child {
+  border-top: 0;
+}
+
+.sn-row dt {
+  padding: 3px 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+  background: #f4f5f8;
+  border: 0;
+  border-radius: 5px;
+}
+
+.sn-row dd {
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.sn-tree {
+  gap: 8px;
+}
+
+.sn-tree-label {
+  padding: 2px 8px;
+  color: var(--deep);
+  font-size: 12.5px;
+  background: var(--deep-bg);
+  border: 1px solid var(--deep-line);
+  border-radius: 5px;
+}
+
+/* 成分树的连接线要看得见 */
+.sn-tree-line::before,
+.sn-tree-line::after {
+  background: #c4d2e4;
+}
+
+/* ------------------------- 7. 逐题讲解 ------------------------- */
+
+.qs-board {
+  gap: 14px;
+}
+
+.qs-pills {
+  gap: 8px;
+}
+
+.qs-count {
+  font-size: 13px;
+}
+
+.qs-pill {
+  height: 26px;
+  min-width: 30px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.qs-pill.active {
+  color: #fff;
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.qs-panel {
+  padding: 14px 16px 16px;
+  border-radius: 8px;
+}
+
+.qs-panel-head h3 {
+  font-size: 15px;
+}
+
+.qs-stem {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.qs-rows {
+  gap: 10px;
+}
+
+.qs-row {
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 14px;
+  padding-top: 10px;
+}
+
+.qs-row dt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  background: #f4f5f8;
+  border-radius: 5px;
+}
+
+.qs-row dd {
+  font-size: 14px;
+  line-height: 1.82;
+}
+
+.qs-evidence {
+  padding: 4px 10px;
+  background: var(--deep-bg);
+  border-radius: 6px;
+}
+
+.qs-answer {
+  display: inline-block;
+  padding: 2px 10px;
+  background: var(--deep-bg);
+  border-radius: 6px;
+}
+
+/* ------------------------- 8. 搭配与练习 ------------------------- */
+
+.pr-board {
+  gap: 14px;
+}
+
+.pr-bar {
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.pr-bar-label {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.pr-levels {
+  gap: 6px;
+}
+
+.pr-levels label {
+  height: 28px;
+  padding: 0 14px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.pr-hint {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.pr-head {
+  padding-bottom: 10px;
+}
+
+.pr-head h3 {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.pr-item {
+  padding: 14px 0;
+}
+
+.pr-no {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pr-title {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.pr-prompt {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pr-toggle {
+  height: 30px;
+  font-size: 13px;
+}
+
+.pr-answer-text {
+  font-size: 14.5px;
+}
+
+.pr-more {
+  font-size: 13px;
+}
+
+/* 空态左对齐，跟正文同一起点 */
+.block-empty {
+  padding: 22px 0 6px;
+  text-align: left;
+}
+
+.result-body .block-empty {
+  width: 100%;
+  align-self: stretch;
+}
+
+.block-empty-title {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.block-empty-text {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+/* ------------------------- 9. 历史记录 ------------------------- */
+
+.hs-page {
+  grid-template-columns: 232px minmax(0, 1fr);
+}
+
+.hs-item-title {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hs-item-meta {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.hs-detail .an-head,
+.hs-detail-head {
+  gap: 12px;
+}
+
+/* ------------------------- 10. 单词本 ------------------------- */
+
+.block-actions .btn {
+  height: 30px;
+  font-size: 13px;
+}
+
+/* ------------------------- 11. 细节修正 ------------------------- */
+
+/* 输入卡头：「文章内容」按页签处理，蓝色下划线落在卡片头的分隔线上 */
+.an-input-head {
+  position: relative;
+  height: 44px;
+  padding: 0 14px;
+}
+
+.an-input-title {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.an-input-title::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--deep);
+  content: '';
+}
+
+/* 密钥已保存：绿点更像「已连接」 */
+.conn-pill .dot {
+  background: #22a06b;
+  box-shadow: 0 0 0 3px rgba(34, 160, 107, 0.12);
+}
+
+/* 词条之间靠留白分组，中间那条竖线要看得见 */
+.vc-card {
+  padding: 19px 0;
+}
+
+.vc-card:first-of-type {
+  padding-top: 2px;
+}
+
+.vc-body {
+  border-left-color: #d3ddee;
+}
+
+/* 长难句三个字段之间的分隔线 */
+.sn-row {
+  border-top-color: #e7eefa;
+}
+
+/* 历史详情标题与元信息 */
+.hs-head {
+  padding: 18px 20px 14px;
+}
+
+.hs-title h1 {
+  font-size: 22.5px;
+}
+
+.hs-meta {
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+
+.hs-actions .btn {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+/* 列表底部：条数 + 清空，头部只留标题 */
+.hs-foot {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+  padding: 9px 4px 2px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.hs-foot .link-btn {
+  font-size: 12px;
+}
+
+/* 设置页页脚：居中一行版本信息 */
+.st-version {
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 4px 10px;
+  color: var(--muted-light);
+  font-size: 12px;
+}
+
+.st-version span:last-child {
+  margin-left: 0;
+}
+
+.st-version i {
+  color: var(--line-strong);
+  font-style: normal;
+}
+
+/* ------------------------- 12. 单词本 ------------------------- */
+
+.vb-head {
+  flex: none;
+  padding: 2px 2px 12px;
+}
+
+.vb-title {
+  color: var(--ink);
+  font-size: 22.5px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.vb-sub {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 表格行高统一：搭配有没有都占同样高度，避免隔行忽高忽低 */
+.textbook-table tbody tr {
+  height: 44px;
+}
+
+.textbook-table tbody td {
+  height: 44px;
+  padding: 0 16px;
+}
+
+/* 搭配只占一行，超出省略，鼠标悬停看全文 */
+.textbook-table .colloc-cell {
+  min-height: 18px;
+}
+
+.textbook-table .colloc-cell > span:not(.colloc-dash) {
+  -webkit-line-clamp: 1;
+}
+
+.textbook-table .colloc-cell.is-empty {
+  font-size: 14px;
+}
+
+.textbook-table thead th {
+  height: 38px;
+  padding: 0 16px;
+}
+
+
+/* ------------------------- 13. API 设置 ------------------------- */
+
+.st-wrap {
+  width: min(1080px, 100%);
+}
+
+.st-head {
+  padding: 18px 22px 14px;
+}
+
+.st-head h1 {
+  font-size: 21px;
+}
+
+.st-head-note {
+  font-size: 13px;
+}
+
+.st-row {
+  grid-template-columns: 218px minmax(0, 1fr);
+  gap: 18px;
+  padding: 15px 22px;
+}
+
+.st-label {
+  font-size: 15.5px;
+}
+
+.st-fold {
+  border-radius: 10px;
+}
+
+.st-fold-head {
+  padding: 14px 20px;
+}
+
+/* ------------------------- 14. 下拉菜单与专注模式 ------------------------- */
+
+.more-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.menu-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 172px;
+  padding: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 36px -20px rgba(16, 24, 40, 0.34);
+}
+
+.menu-pop button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 9px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-pop button:hover {
+  color: var(--deep);
+  background: var(--deep-bg);
+}
+
+.menu-pop button:disabled {
+  color: var(--muted-light);
+  cursor: default;
+  background: none;
+}
+
+.menu-pop .app-icon {
+  color: var(--muted);
+}
+
+.menu-pop button:hover .app-icon {
+  color: var(--deep);
+}
+
+/* 专注备课：收起顶部导航，把整个高度还给两栏 */
+.shell.is-focus .topbar {
+  display: none;
+}
+
+.shell.is-focus .workspace {
+  padding: 10px 12px 12px;
+}
+
+/* ------------------------- 14. 下拉菜单与专注模式 ------------------------- */
+
+.more-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.menu-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 172px;
+  padding: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 36px -20px rgba(16, 24, 40, 0.34);
+}
+
+.menu-pop button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 9px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-pop button:hover {
+  color: var(--deep);
+  background: var(--deep-bg);
+}
+
+.menu-pop button:disabled {
+  color: var(--muted-light);
+  cursor: default;
+  background: none;
+}
+
+.menu-pop .app-icon {
+  color: var(--muted);
+}
+
+.menu-pop button:hover .app-icon {
+  color: var(--deep);
+}
+
+/* 专注备课：收起顶部导航，把整个高度还给两栏 */
+.shell.is-focus .topbar {
+  display: none;
+}
+
+.shell.is-focus .workspace {
+  padding: 10px 12px 12px;
+}
+
+/* 词条左栏再收紧一点：音标—词性—释义三段不要散 */
+.vc-ipa {
+  margin-top: 3px;
+}
+
+.vc-pos {
+  margin-top: 6px;
+}
+
+.vc-meaning {
+  margin-top: 7px;
+}
+
+/* 词条左栏再收紧一点：音标—词性—释义三段不要散 */
+.vc-ipa {
+  margin-top: 3px;
+}
+
+.vc-pos {
+  margin-top: 6px;
+}
+
+.vc-meaning {
+  margin-top: 7px;
+}
+
+/* ------------------------- 15. 字体与细部（对齐设计稿） ------------------------- */
+
+/*
+ * 设计稿的英文内容（原文、词头、引句）用的是衬线体，
+ * 这是「编辑/办公」质感的一半；中文说明仍用无衬线，避免宋体发虚。
+ */
+.an-para-text,
+.sn-quote,
+.vc-term,
+.vc-ipa,
+.vc-phrase,
+.dc-genre {
+  font-family: var(--serif);
+}
+
+/* 左栏原文：段号做成浅灰小胶囊，正文左侧一条细竖线 */
+.an-para {
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 10px;
+  padding: 5px 0;
+}
+
+.an-para + .an-para {
+  margin-top: 15px;
+}
+
+.an-para-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+  padding: 0;
+  color: #6b7a90;
+  font-size: 11px;
+  font-weight: 600;
+  background: #f3f5f9;
+  border-radius: 5px;
+}
+
+.an-para.is-active .an-para-label {
+  color: var(--deep);
+  background: var(--deep-bg-2);
+}
+
+.an-para-text {
+  padding-left: 13px;
+  font-size: 15px;
+  line-height: 1.95;
+  border-left: 1px solid #dde5f1;
+}
+
+.an-para.is-active .an-para-text,
+.an-para:hover .an-para-text {
+  border-left-color: var(--deep-3);
+}
+
+/* 重点词汇：词头衬线、词条间一条浅横线、右侧字段标签是纯文字 */
+.vc-card {
+  padding: 20px 0 22px;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.vc-card:first-of-type {
+  padding-top: 4px;
+}
+
+.vc-term {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+.vc-ipa {
+  margin-top: 5px;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.vc-pos {
+  margin-top: 7px;
+  color: #5c6b80;
+  background: #eff2f7;
+}
+
+.vc-meaning {
+  margin-top: 9px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.vc-body {
+  padding-left: 22px;
+  border-left: 1px solid #dde5f1;
+}
+
+.vc-row {
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.vc-row dt {
+  justify-content: flex-start;
+  height: auto;
+  padding-top: 5px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  background: none;
+}
+
+.vc-row dd {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.vc-row:first-child dd {
+  padding: 7px 12px;
+  border: 1px solid #e4edfa;
+}
+
+.vc-phrase {
+  font-size: 15px;
+}
+
+.vc-locate {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+/* 长难句：成分树改成「竖线在胶囊左侧」，与设计稿一致 */
+.sn-tree-row {
+  grid-template-columns: 13px 98px minmax(0, 1fr);
+  column-gap: 0;
+  align-items: start;
+}
+
+.sn-tree-line {
+  grid-column: 1;
+  min-height: 24px;
+}
+
+.sn-tree-label {
+  grid-column: 2;
+  justify-self: stretch;
+  margin-right: 12px;
+  padding: 2px 6px;
+  color: var(--deep);
+  font-size: 12px;
+  text-align: center;
+  background: #eaf2fe;
+  border: 0;
+}
+
+.sn-tree-text {
+  grid-column: 3;
+  padding-top: 1px;
+}
+
+.sn-tree-line::before {
+  left: 5px;
+  background: #c8d6e8;
+}
+
+.sn-tree-line::after {
+  top: 12px;
+  left: 5px;
+  width: 8px;
+  background: #c8d6e8;
+}
+
+.sn-tree-row:first-child .sn-tree-line::before {
+  top: 12px;
+}
+
+.sn-tree-row:last-child .sn-tree-line::before {
+  bottom: calc(100% - 12px);
+}
+
+.sn-quote {
+  font-size: 21px;
+  line-height: 1.7;
+  letter-spacing: 0.1px;
+}
+
+/* 成分树：竖线画在整棵树上，每行再接一段横线到胶囊左侧 */
+.sn-tree {
+  position: relative;
+  padding-left: 15px;
+}
+
+.sn-tree::before {
+  position: absolute;
+  top: 11px;
+  bottom: 11px;
+  left: 4px;
+  width: 1px;
+  background: #ccd9ea;
+  content: '';
+}
+
+.sn-tree-row {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.sn-tree-line {
+  display: none;
+}
+
+.sn-tree-row::before {
+  position: absolute;
+  top: 10px;
+  left: -11px;
+  width: 11px;
+  height: 1px;
+  background: #ccd9ea;
+  content: '';
+}
+
+.sn-tree-label {
+  flex: 0 0 92px;
+  margin: 0;
+  text-align: center;
+}
+
+.sn-tree-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* 词条：原文块只留浅底，不要描边；整块再紧一点 */
+.vc-card {
+  padding: 18px 0 20px;
+}
+
+.vc-row:first-child dd {
+  border: 0;
+}
+
+/* 词头去掉全局 h4 的上下外边距（否则词条被撑高 ~50px） */
+.vc-term {
+  margin: 0;
+}
+
+.vc-lead {
+  padding-right: 20px;
+}
+
+/* 练习：题目之间用细线分隔，行距与其它板块一致 */
+.pr-item {
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid #eef1f6;
+}
+
+.pr-item:first-of-type {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.pr-no {
+  padding-top: 2px;
+  color: var(--muted-light);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.pr-title {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+}
+
+.pr-prompt {
+  margin-top: 0;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.pr-answer {
+  margin-top: 10px;
+}
+
+/* ------------------------- 16. 教材词汇：搭配带中文含义 ------------------------- */
+
+/* 每条搭配一行：英文搭配 + 后面浅灰的中文含义 */
+.textbook-table .colloc-cell > .colloc-line,
+.colloc-cell > .colloc-line {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  overflow: visible;
+  line-height: 1.6;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+}
+
+.colloc-pattern {
+  color: var(--ink-soft);
+}
+
+.colloc-meaning {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--muted-light);
+  font-size: 0.94em;
+}
+
+.textbook-table .colloc-cell {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+/* 列宽重排：教材词汇与「我的词汇」一致——单词·音标同列、词性单列 */
+.textbook-table .col-word {
+  width: 20%;
+}
+
+.textbook-table .col-pos {
+  width: 76px;
+}
+
+.textbook-table .col-collocation {
+  width: 30%;
+}
+
+/* 教材词汇表格整体字体与「我的词汇」看齐，并整体放大 */
+.textbook-table td {
+  font-size: 15px;
+}
+
+.textbook-table .mv-word {
+  font-size: 15.5px;
+  font-weight: 600;
+}
+
+.textbook-table .mv-ipa {
+  font-size: 12.5px;
+}
+
+.textbook-table .col-meaning {
+  font-size: 14.5px;
+}
+
+/* 我的词汇只剩一个「⋯」，操作列收窄 */
+.mv-table .col-action {
+  width: 52px;
+}
+
+/* ------------------------- 17. 导出词单下拉 ------------------------- */
+
+.ws-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.ws-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 30;
+  width: 236px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 18px 38px -20px rgba(16, 24, 40, 0.32);
+}
+
+.ws-menu button {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 8px 10px;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.ws-menu button:hover {
+  background: var(--deep-bg);
+}
+
+.ws-menu b {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ws-menu em {
+  color: var(--muted-light);
+  font-size: 12px;
+  font-style: normal;
+}
+
+/* ------------------------- 18. 细节修正 ------------------------- */
+
+/* 练习侧栏：没有练习的「暂无」不再画圈，按普通浅灰文字处理 */
+.side-badge.empty {
+  padding: 0;
+  color: var(--muted-light);
+  font-size: 11.5px;
+  background: none;
+  border: 0;
+}
+
+/* 教材单词看起来更清楚 */
+.side-word {
+  font-size: 16px;
+}
+
+/* 文章解析的粘贴大框：铺一层很淡的书籍插画底纹，只作氛围、不干扰输入 */
+.an-input .source-editor {
+  position: relative;
+  background-image:
+    url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='230' viewBox='0 0 300 230'%3E%3Cg fill='none' stroke='%23145da7' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M72 78c0-7 5-12 12-12h24c2 0 3 1 3 3v96c0 2-1 3-3 3H84c-7 0-12-5-12-12z'/%3E%3Cpath d='M228 78c0-7-5-12-12-12h-24c-2 0-3 1-3 3v96c0 2 1 3 3 3h24c7 0 12-5 12-12z'/%3E%3Cpath d='M150 78v102'/%3E%3Cpath d='M86 98h24M86 110h24M86 122h18M190 98h24M190 110h24M190 122h18'/%3E%3Cpath d='M44 46l22 20M256 46l-22 20'/%3E%3Cpath d='M206 196l34-18'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px 230px;
+}
+
+/* ------------------------- 19. 我的词汇编辑面板 ------------------------- */
+
+/* theme.css 把 .mv-layout 改成了 flex，导致编辑面板被挤成 2px；
+   打开面板时回到两栏网格，右侧固定宽度。 */
+.mv-layout.with-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 344px;
+  align-items: start;
+}
+
+.side-editor {
+  min-width: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 1180px) {
+  .mv-layout.with-editor {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+/* ------------------------- 19. 我的词汇编辑面板 ------------------------- */
+
+/* theme.css 把 .mv-layout 改成了 flex，导致编辑面板被挤成 2px；
+   打开面板时回到两栏网格，右侧固定宽度。 */
+.mv-layout.with-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 344px;
+  align-items: start;
+}
+
+.side-editor {
+  min-width: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 1180px) {
+  .mv-layout.with-editor {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+}
+
+/* 行尾「⋯」再清楚一点 */
+.mv-table .row-more .icon-btn {
+  color: var(--muted);
+}
+
+.mv-table .row-more .icon-btn:hover {
+  color: var(--deep);
+  background: var(--deep-bg);
+}
+
+/* 行尾「⋯」再清楚一点 */
+.mv-table .row-more .icon-btn {
+  color: var(--muted);
+}
+
+.mv-table .row-more .icon-btn:hover {
+  color: var(--deep);
+  background: var(--deep-bg);
+}
+
+/* Shared spacing for the desktop navigation and action rows. */
+.topbar { height: 60px; padding-inline: clamp(20px, 2.4vw, 36px); gap: clamp(30px, 4vw, 64px); }
+.topbar-brand { gap: 10px; white-space: nowrap; font-size: 17px; }
+.topbar-mark, .topbar-mark img { display: block; width: 28px; height: 28px; }
+.topnav { gap: clamp(20px, 2.4vw, 38px); }
+.topnav-item { padding-inline: 4px; font-size: 15px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; line-height: 1.25; white-space: nowrap; }
+.btn svg, .icon-btn svg { flex-shrink: 0; display: block; }
+.an-head-actions, .hs-actions, .block-actions, .st-actions { align-items: center; flex-wrap: wrap; gap: 8px; }
+.an-head.card { height: auto; padding-block: 9px; }
+.an-head-main { min-width: 0; }
+.vb-head { padding: 4px 2px 10px; }
+.vb-title, .st-head h1 { font-size: 22px; line-height: 1.4; }
+.vocab-toolbar, .bulkbar { align-items: center; flex-wrap: wrap; height: auto; row-gap: 8px; }
+.st-row { padding-block: 17px; }
+.st-label { line-height: 1.5; }
+.textbook-table tbody td { height: 46px; }
+@media (max-width: 1100px) {
+  .an-doc { max-width: 18vw; }
+  .panel-head { flex-wrap: wrap; row-gap: 8px; }
+}
+.vb-toolbar-actions { display: flex; align-items: center; gap: 8px; margin-inline-start: auto; }
+.vb-toolbar-actions .btn, .vocab-toolbar .colloc-btn { height: 30px; }
+.textbook-table:not(.cross-table) .col-collocation { width: 38%; }

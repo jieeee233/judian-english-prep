@@ -1,0 +1,20 @@
+{
+  "source": "作品集原创示例词表",
+  "generatedAt": "2026-11-19T00:00:00.000Z",
+  "totalEntries": 3,
+  "books": [{
+    "id": "bx1",
+    "label": "备课示例",
+    "short": "示例词表",
+    "series": "原创示例",
+    "units": [{
+      "n": 1,
+      "title": "A quiet afternoon",
+      "entries": [
+        [1, "rainfall", "ˈreɪnfɔːl", "n.", "降雨，降雨量", "", [["heavy rainfall", "强降雨"]]],
+        [2, "shelter", "ˈʃeltə", "n.", "庇护处", "", [["take shelter from the rain", "找地方避雨"]], [["S1", "prep", "介词搭配", "The walkers took shelter ______ the rain under a bridge.", "from", "", "take shelter from 表示躲避。"]]],
+        [3, "soaked", "səʊkt", "adj.", "湿透的", "", [["soaked to the skin", "浑身湿透"]]]
+      ]
+    }]
+  }]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "english-teaching-tool",
+  "productName": "句点英语备课",
+  "version": "0.9.10",
+  "description": "句点英语备课",
+  "main": ".vite/build/main.js",
+  "author": "句点英语备课",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.json",
+    "build:renderer": "vite build --config vite.renderer.config.ts"
+  },
+  "dependencies": {
+    "docx": "9.15.3",
+    "electron-squirrel-startup": "1.0.1",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "8.0.1",
+    "@electron-forge/maker-squirrel": "8.0.1",
+    "@electron-forge/maker-zip": "8.0.1",
+    "@electron-forge/plugin-vite": "8.0.1",
+    "@electron-forge/shared-types": "8.0.1",
+    "@types/node": "^22.12.0",
+    "@vitejs/plugin-vue": "6.0.10",
+    "electron": "38.8.6",
+    "electron-winstaller": "^5.4.0",
+    "typescript": "5.7.3",
+    "vite": "7.3.8"
+  }
+}
