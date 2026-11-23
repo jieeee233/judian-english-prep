@@ -44,3 +44,28 @@ for (const link of document.querySelectorAll('[data-image]')) {
 dialog.addEventListener('click', event => {
   if (event.target === dialog) dialog.close();
 });
+
+const fitButton = document.querySelector('#fit-demo');
+const frameScroll = frame.closest('.frame-scroll');
+const narrowScreen = matchMedia('(max-width: 1008px)');
+let fitRequested = false;
+
+function updateDemoScale() {
+  const fitted = fitRequested && narrowScreen.matches;
+  frameScroll.classList.toggle('is-fitted', fitted);
+  fitButton.setAttribute('aria-pressed', String(fitted));
+  fitButton.textContent = fitted ? '恢复横向拖动' : '缩小显示';
+  if (fitted) {
+    const scale = Math.min(1, frameScroll.clientWidth / 960);
+    frameScroll.style.setProperty('--demo-scale', scale);
+    frameScroll.style.setProperty('--fitted-height', `${Math.ceil(frame.offsetHeight * scale)}px`);
+    frameScroll.scrollLeft = 0;
+  }
+}
+
+fitButton.addEventListener('click', () => {
+  fitRequested = !fitRequested;
+  updateDemoScale();
+});
+new ResizeObserver(updateDemoScale).observe(frameScroll);
+narrowScreen.addEventListener('change', updateDemoScale);

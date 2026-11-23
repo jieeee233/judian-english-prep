@@ -72,12 +72,29 @@ dialog form{display:flex;justify-content:end;position:sticky;top:0}dialog button
 .mobile-hint{display:none}@media(max-width:1008px){.mobile-hint{display:block;padding:7px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.875rem;background:#f6f9fc}}
 
 @media (max-width: 1008px) {
-  #live-demo {
-    min-width: 0;
-    height: 760px;
-    height: clamp(540px, 90svh, 820px);
+  .mobile-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px 12px;
   }
-  .demo-toolbar { flex-wrap: wrap; }
-  .flows button { min-height: 44px; }
-  .demo-toolbar a { padding-block: 8px; }
+  #fit-demo {
+    min-height: 42px;
+    padding: 3px 10px;
+    border: 1px solid #c6dcf2;
+    border-radius: 7px;
+    background: white;
+    color: var(--blue);
+    cursor: pointer;
+  }
+  .frame-scroll.is-fitted { overflow: hidden; }
+  .is-fitted .frame-stage { position: relative; height: var(--fitted-height, 640px); }
+  .is-fitted #live-demo {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 960px;
+    transform: scale(var(--demo-scale, 1));
+    transform-origin: top left;
+  }
 }

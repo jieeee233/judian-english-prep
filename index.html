@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="句点英语备课，Windows 桌面产品案例及可交互演示。">
 <link rel="icon" href="assets/mark.png">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=scroll-mode">
 <title>句点英语备课｜产品作品集</title>
 </head>
 <body>
@@ -48,8 +48,9 @@
         </div>
         <a href="demo/index.html?tab=sentences" target="_blank" rel="noopener">独立打开</a>
       </div>
+      <div class="mobile-hint"><span>横向滑动查看完整工作台</span><button id="fit-demo" type="button" aria-pressed="false" aria-controls="live-demo">缩小显示</button></div>
       <div class="frame-scroll" tabindex="0" aria-label="桌面应用演示区">
-        <iframe id="live-demo" title="句点英语备课 0.9.10 交互演示" src="demo/index.html?tab=sentences" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+        <div class="frame-stage"><iframe id="live-demo" title="句点英语备课 0.9.10 交互演示" src="demo/index.html?tab=sentences" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe></div>
       </div>
       <p class="try" id="try-tip">试试点击右栏的「定位原文」，再切到「逐题讲解」核对题目依据。</p>
     </div>
@@ -79,6 +80,6 @@
 </main>
 <footer><div class="wrap footer"><a class="brand" href="#main"><img src="assets/mark.png" alt="" width="27" height="27">句点英语备课</a><a href="#main">回到顶部</a></div></footer>
 <dialog id="image-dialog" aria-label="大图预览"><form method="dialog"><button type="submit">关闭</button></form><img alt=""></dialog>
-<script src="script.js" defer></script>
+<script src="script.js?v=scroll-mode" defer></script>
 </body>
 </html>
