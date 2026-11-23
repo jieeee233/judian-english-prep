@@ -1,68 +1,17 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
-<title>句点英语备课 · 交互演示</title>
-<link rel="stylesheet" href="demo.css">
-<script src="demo.js" defer></script>
-</head>
-<body>
-<header>
-  <strong>句点英语备课</strong>
-  <nav aria-label="工作台">
-    <button data-view="analysis" aria-pressed="true">文章解析</button>
-    <button data-view="words" aria-pressed="false">单词本 <span id="count">0</span></button>
-    <button data-view="history" aria-pressed="false">历史记录</button>
-  </nav>
-</header>
-<main>
-  <p class="note">内置示例 · A Quiet Afternoon</p>
-  <section id="analysis" class="workspace" aria-label="文章解析">
-    <article class="panel">
-      <h2>原文</h2>
-      <p id="p1" tabindex="-1"><small>P1</small> On my first day at a new school, I spent lunch looking for somewhere quiet to sit.</p>
-      <p id="p2" tabindex="-1"><small>P2</small> When the rain began, I took shelter in the library, where a girl was reading by the window.</p>
-      <p id="p3" tabindex="-1"><small>P3</small> She moved her books to make room for me. That small gesture made the unfamiliar school feel a little more like home.</p>
-    </article>
-    <article class="panel">
-      <nav aria-label="解析选项">
-        <button data-tab="sentence" aria-pressed="true">长难句</button>
-        <button data-tab="question" aria-pressed="false">逐题讲解</button>
-        <button data-tab="vocab" aria-pressed="false">重点词汇</button>
-      </nav>
-      <div id="sentence">
-        <h2>时间状语从句与定语从句</h2>
-        <blockquote>When the rain began, I took shelter in the library, where a girl was reading by the window.</blockquote>
-        <p><b>结构</b> When 引导时间状语从句。where 引导非限制性定语从句，补充说明图书馆里发生的事。</p>
-        <p><b>翻译</b> 开始下雨时，我去图书馆避雨，那里有个女孩正坐在窗边看书。</p>
-        <button data-locate="p2">定位原文 P2</button>
-      </div>
-      <div id="question" hidden>
-        <h2>推理判断</h2>
-        <p lang="en">Why did the school begin to feel more like home?</p>
-        <details><summary>查看答案与依据</summary><p>女孩主动挪开书为主人公腾出位置。这个善意的举动让主人公开始感到被接纳。</p><button data-locate="p3">定位原文 P3</button></details>
-      </div>
-      <div id="vocab" hidden>
-        <h2>重点词汇</h2>
-        <div id="vocab-list"></div>
-      </div>
-    </article>
-  </section>
-  <section id="words" class="panel" hidden>
-    <h2>我的词汇</h2>
-    <label>搜索词条 <input id="filter" type="search" placeholder="输入英文或释义"></label>
-    <div id="saved-list"></div>
-    <button id="start-practice" disabled>练习已收藏词汇</button>
-    <section id="practice" hidden aria-label="词汇练习"></section>
-  </section>
-  <section id="history" class="panel" hidden>
-    <h2>历史记录</h2>
-    <p>示例备课记录</p>
-    <button id="open-record">打开 A Quiet Afternoon</button>
-  </section>
-  <div class="sr-only" id="status" role="status"></div>
-</main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' ws://localhost:* ws://127.0.0.1:*; img-src 'self' data:; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>句点英语备课</title>
+    <script type="module" crossorigin src="./assets/index.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>

@@ -1,3 +1,35 @@
+const frame = document.querySelector('#live-demo');
+const tip = document.querySelector('#try-tip');
+const buttons = [...document.querySelectorAll('.flows button')];
+const tips = [
+  '试试点击右栏的「定位原文」，再切到「逐题讲解」核对题目依据。',
+  '试试把一个重点词存入「我的词汇」，随后到单词本查看。',
+  '试试进入「查看练习」，勾选词条，选择题型并生成模拟题目。',
+  '试试选择任一示例记录，再从历史结果返回文章解析。'
+];
+let active = buttons[0];
+
+function showCurrentView() {
+  frame.contentWindow.postMessage({
+    type: 'judian:show',
+    view: active.dataset.view,
+    tab: active.dataset.tab
+  }, location.protocol === 'file:' ? '*' : location.origin);
+}
+
+frame.addEventListener('load', showCurrentView);
+for (const [index, button] of buttons.entries()) {
+  button.addEventListener('click', () => {
+    active = button;
+    for (const item of buttons) {
+      item.classList.toggle('active', item === active);
+      item.setAttribute('aria-pressed', item === active);
+    }
+    tip.textContent = tips[index];
+    showCurrentView();
+  });
+}
+
 const dialog = document.querySelector('#image-dialog');
 const expanded = dialog.querySelector('img');
 for (const link of document.querySelectorAll('[data-image]')) {

@@ -70,6 +70,3 @@ dialog form{display:flex;justify-content:end;position:sticky;top:0}dialog button
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .mobile-hint{display:none}@media(max-width:1008px){.mobile-hint{display:block;padding:7px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.875rem;background:#f6f9fc}}
-
-.preview img { display: block; width: 100%; height: auto; }
-.interactive-demo{min-width:0;height:660px;background:#f4f7fb}
