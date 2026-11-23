@@ -70,3 +70,14 @@ dialog form{display:flex;justify-content:end;position:sticky;top:0}dialog button
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .mobile-hint{display:none}@media(max-width:1008px){.mobile-hint{display:block;padding:7px 14px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.875rem;background:#f6f9fc}}
+
+@media (max-width: 1008px) {
+  #live-demo {
+    min-width: 0;
+    height: 760px;
+    height: clamp(540px, 90svh, 820px);
+  }
+  .demo-toolbar { flex-wrap: wrap; }
+  .flows button { min-height: 44px; }
+  .demo-toolbar a { padding-block: 8px; }
+}
